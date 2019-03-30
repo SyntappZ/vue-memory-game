@@ -11,20 +11,27 @@
      <div id="app">
     	    <template>
               <header>
-                <h2> {{ title }} </h2>
-                <h2> Points:  {{ points }} </h2>
-                
+                  <h2> {{ title }} </h2>
+                  <h2> Points:  {{ points }} </h2>
               </header>
-            </template>
+          </template>
             
             
             <template>
+              <div class="end" v-if="winner || over">
+                <h1> {{ winOrLoss }} </h1>
+                <button class="restart" @click="restart">Restart</button>
+                
+              </div>
                 <div id="card-pack">
                     <div class="wrap">
                         <button class="box" v-for="card in pack" :disabled="isDisabled(card)" @click="turnOver(card)" >
                           <transition>
-                              <div v-if="card.show || card.win" class="cards">
+                              <div v-if="card.show || card.won" class="cards">
                                   {{ card.face }}
+                              </div>
+                              <div v-else-if="!card.won && over" id="gameover-card"class="cards">
+                                {{ card.face }}
                               </div>
                           </transition>
                         </button>

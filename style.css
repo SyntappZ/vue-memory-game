@@ -34,8 +34,9 @@ body {
     cursor: pointer;
     background-color:var(--black);
 }
-.box-color {
-    background-color:var(--light-green);
+
+#gameover-card {
+    background-color:rgb(124, 124, 124);
 }
 .cards{
     width:100%;
@@ -70,6 +71,22 @@ p {
     padding:30px;
     cursor: pointer;
     font-size: 25px;
+}
+.end {
+    width:80%;
+    height:200px;
+    border:1px solid var(--black);
+    margin:auto;
+    background-color:#fff;
+    text-align: center;
+    line-height: 200px;
+}
+.restart {
+    padding:15px;
+    background-color:rgb(12, 71, 12);
+    cursor:pointer;
+    border-radius: 5px;
+    color:#fff;
 }
 #message {
     color: var(--black);
