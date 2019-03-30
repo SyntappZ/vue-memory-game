@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>game</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+     <div id="app">
+    	    <template>
+              <header>
+                <h2> {{ title }} </h2>
+                <h2> Points:  {{ points }} </h2>
+                
+              </header>
+            </template>
+            
+            
+            <template>
+                <div id="card-pack">
+                    <div class="wrap">
+                        <button class="box" v-for="card in pack" :disabled="isDisabled(card)" @click="turnOver(card)" >
+                          <transition>
+                              <div v-if="card.show || card.win" class="cards">
+                                  {{ card.face }}
+                              </div>
+                          </transition>
+                        </button>
+                    </div>
+                </div>
+            </template>
+            
+            
+            
+    		<template>
+              <footer>
+                <p id="start" v-if="!start" @click="makeRandomArray"> start</p>
+                <p v-else> {{ name }} </p>
+              </footer>
+        </template>
+	    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
