@@ -20,7 +20,8 @@
             <template>
               <transition>
                   <div class="end" v-if="winner || over">
-                      <h1 id="end-message"> {{ endGame }} </h1>
+                        <h1 id="end-message"> {{ endGame }} </h1>
+                        <h3 id="end-points">{{ points }} points - {{ endMessage }}</h3>
                       <button class="restart" @click="restart">Restart</button>
                   </div>
               </transition>

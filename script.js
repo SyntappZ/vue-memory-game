@@ -74,7 +74,14 @@ window.onload = () => {
       },
       
       restart() {
-        location.reload();
+         this.points = 0,
+         this.turnedArr= [],
+         this.ids = [],
+         this.pack = [],
+         this.over = false,
+         this.start = false,
+         this.winner = false,
+         this.counter = 1
       },
          
          
@@ -94,7 +101,22 @@ window.onload = () => {
      computed: {
          endGame() {
             return this.over ? 'GAME OVER!' : this.winner ? 'WINNER!' : null
+         },
+         endMessage() {
+            if(this.points <= 0) {
+               return 'better luck next time!'
+            }
+           else if(this.points <= 5 && this.points > 0) {
+               return 'need more training!'
+            }
+            else if(this.points > 5 && this.points < 10) {
+               return 'wow, well done!'
+            }
+            else if(this.points > 10) {
+               return 'insane, memory god!'
+            }
          }
+
          
       }
          
