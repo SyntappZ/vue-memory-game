@@ -18,11 +18,13 @@
             
             
             <template>
-              <div class="end" v-if="winner || over">
-                <h1> {{ winOrLoss }} </h1>
-                <button class="restart" @click="restart">Restart</button>
-                
-              </div>
+              <transition>
+                  <div class="end" v-if="winner || over">
+                      <h1 id="end-message"> {{ endGame }} </h1>
+                      <button class="restart" @click="restart">Restart</button>
+                  </div>
+              </transition>
+              
                 <div id="card-pack">
                     <div class="wrap">
                         <button class="box" v-for="card in pack" :disabled="isDisabled(card)" @click="turnOver(card)" >

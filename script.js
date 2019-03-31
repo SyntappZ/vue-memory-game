@@ -1,6 +1,6 @@
 window.onload = () => {
     
-    new Vue({
+   new Vue({
      el: "#app",
      data: {
          title: 'Vue Memory Game',
@@ -13,9 +13,11 @@ window.onload = () => {
          over: false,
          start: false,
          winner: false,
+         counter: 1
      },
     methods: {
       makeRandomArray() {
+         
          this.start = true;
          this.points = 5;
          let arr1 = []
@@ -43,15 +45,14 @@ window.onload = () => {
                this.pack.forEach(e => {
                   e.id === this.ids[0] ? e.won = true : null
                   e.id === this.ids[1] ? e.won = true : null
-
-                  
                })
-
+              this.title = 'Correct!'
               this.turnedArr = []
               this.ids = []
               this.points++
-              this.match;
-
+              console.log(this.counter)
+              this.counter < 6 ? this.counter++ : this.winner = true
+              
               setTimeout(() => {
                this.title = 'Vue Memory Game';
             }, 2000);
@@ -65,29 +66,20 @@ window.onload = () => {
                   this.ids = []
                   
                }, 600);
-               this.points <= 0 ? this.gameOver() : null
+               this.points <= 0 ? this.over = true : this.over = false
             }
          }
-         
+        
    
       },
-      gameOver() {
-         this.pack.forEach(e => {
-            setTimeout(() => {
-               e.show = true;
-            }, 500);
-           
-         })
-         this.over = true;
-      },
-        
+      
       restart() {
         location.reload();
       },
          
          
         isDisabled(card) {
-         if(card.show || this.turnedArr.length >= 2 || this.over) {
+         if(card.show || this.turnedArr.length >= 2 || this.over || this.winner) {
             return true
          }
       }
@@ -101,28 +93,18 @@ window.onload = () => {
      },
      computed: {
          endGame() {
-            return this.title = 'GAME OVER!'
-            
-         },
-         match() {
-            return this.title = 'Correct!'
-         },
-         winOrLoss() {
-            if(over) {
-               return 'Game Over!'
-            }
-            else if(winner) {
-               return 'Winner!'
-            }
+            return this.over ? 'GAME OVER!' : this.winner ? 'WINNER!' : null
          }
          
+      }
          
-     }
+         
+     
     
     
      
      
-    })
+   })
      
      
      

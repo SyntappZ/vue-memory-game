@@ -35,9 +35,7 @@ body {
     background-color:var(--black);
 }
 
-#gameover-card {
-    background-color:rgb(124, 124, 124);
-}
+
 .cards{
     width:100%;
     height:100%;
@@ -45,6 +43,10 @@ body {
     color:var(--black);
     line-height:80px;
     background-color:var(--light-green);
+}
+#gameover-card {
+    background-color:var(--black);
+    color:#fff;
 }
 
 header {
@@ -75,18 +77,23 @@ p {
 .end {
     width:80%;
     height:200px;
-    border:1px solid var(--black);
-    margin:auto;
-    background-color:#fff;
+    border-radius:15px;
+    margin:20px auto 10px auto;
+    background-color:var(--black);
     text-align: center;
-    line-height: 200px;
+    
+}
+#end-message {
+    color:#fff;
+    padding:30px;
 }
 .restart {
-    padding:15px;
-    background-color:rgb(12, 71, 12);
+    padding:15px 20px;
+    background-color:var(--light-green);
     cursor:pointer;
     border-radius: 5px;
-    color:#fff;
+    color:var(--black);
+    border:none;
 }
 #message {
     color: var(--black);
